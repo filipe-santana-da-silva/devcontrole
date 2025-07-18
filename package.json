@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "custom-build": "npx prisma generate && PRISMA_ENGINES_CHECKSUM_IGNORE_MISSING=1 next build",
+   "custom-build": "npx prisma generate && next build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
