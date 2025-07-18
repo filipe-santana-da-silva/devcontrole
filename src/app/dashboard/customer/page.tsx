@@ -5,13 +5,15 @@ import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { CardCustomer } from './components/card'
 import prismaClient from "@/lib/prisma"
+import { Customer as CustomerType } from '@prisma/client'
+
 
 export default async function Customer(){
     const session = await getServerSession(authOptions);
       if(!session || !session.user){
         redirect("/");
       }
-      const customers = await prismaClient.customer.findMany({
+      const customers: CustomerType[]  = await prismaClient.customer.findMany({
         where: {
             userId: session.user.id
         }
